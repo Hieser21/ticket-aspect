@@ -1,4 +1,4 @@
-
+require('dotenv').config()
 const fs = require("fs-extra");
 const path = require("node:path");
 const { Client, Collection, GatewayIntentBits } = require("discord.js");
@@ -40,10 +40,10 @@ if (client.config.mysql?.enabled) {
 		}
 
 		const mysql = new MySQLDriver({
-			host: client.config.mysql?.host,
-			user: client.config.mysql?.user,
-			password: client.config.mysql?.password,
-			database: client.config.mysql?.database,
+			host: process.env.HOST,
+			user: process.env.USERNAME,
+			password: process.env.PASSWORD,
+			database: process.env.DBNAME,
 			charset: "utf8mb4"
 		});
 
